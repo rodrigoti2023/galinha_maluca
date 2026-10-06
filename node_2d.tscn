@@ -6,14 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://cinkclc8pr5a8" path="res://imagens/vesta.webp" id="3_kdubu"]
 [ext_resource type="Script" uid="uid://bn8aq0gnvm1b" path="res://scripts/jogador.gd" id="4_d21ai"]
 [ext_resource type="Texture2D" uid="uid://bevrnrujo5756" path="res://imagens/ovo.webp" id="5_rj586"]
+[ext_resource type="Script" uid="uid://bi3chegkxfnpq" path="res://scripts/ovo.gd" id="7_d21ai"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k4pr2"]
 radius = 130.56715
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nqnr"]
+radius = 259.12952
+
 [node name="Node2D" type="Node2D" unique_id=1361278366]
 
 [node name="Fundo" type="Sprite2D" parent="." unique_id=2037908766]
-position = Vector2(586.5781, 103.65727)
+position = Vector2(578.00006, 103.99999)
 scale = Vector2(2.5880172, 2.711713)
 texture = ExtResource("1_wtcfe")
 
@@ -22,6 +26,9 @@ position = Vector2(446.5, 246.53635)
 scale = Vector2(0.18863636, 0.18863633)
 texture = ExtResource("2_q6r6c")
 script = ExtResource("3_d21ai")
+
+[node name="bunda" type="Node2D" parent="Galinha" unique_id=690991197]
+position = Vector2(29.156626, 209.20494)
 
 [node name="Jogador" type="Sprite2D" parent="." unique_id=301408878]
 position = Vector2(505, 443.00003)
@@ -32,12 +39,47 @@ script = ExtResource("4_d21ai")
 [node name="Area2D" type="Area2D" parent="Jogador" unique_id=1950831806]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador/Area2D" unique_id=838968001]
-position = Vector2(3.2631836, -13.052734)
+position = Vector2(-3.2631302, -0.0001039505)
 shape = SubResource("CircleShape2D_k4pr2")
 
 [node name="Ovo" type="Sprite2D" parent="." unique_id=582240496]
-position = Vector2(453.99997, 309)
+visible = false
+position = Vector2(-67, -46.99997)
 scale = Vector2(0.038708698, 0.037716214)
 texture = ExtResource("5_rj586")
+script = ExtResource("7_d21ai")
 
+[node name="Area2D" type="Area2D" parent="Ovo" unique_id=1482223291 groups=["ovo"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ovo/Area2D" unique_id=978058871]
+shape = SubResource("CircleShape2D_3nqnr")
+debug_color = Color(0.98731035, 0, 0.31935537, 0.41960785)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1440581357]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=710393195]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1773160694]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -223.0
+offset_top = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.18039216, 0, 0.9647059, 1)
+theme_override_font_sizes/font_size = 50
+text = "Pontos: 0"
+
+[connection signal="area_entered" from="Jogador/Area2D" to="Jogador" method="_algo_bateu"]
 [connection signal="input_event" from="Jogador/Area2D" to="Jogador" method="cesto_precionado"]
