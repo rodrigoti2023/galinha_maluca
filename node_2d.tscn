@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2aftb1epxx1r" path="res://imagens/fundo.jpeg" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://bqpgdnvg8jc72" path="res://imagens/galinha-assustado-dos-desenhos-animados-58487715-removebg-preview.png" id="2_q6r6c"]
+[ext_resource type="Script" uid="uid://bfvqsbnweu42j" path="res://scripts/galinha.gd" id="3_d21ai"]
 [ext_resource type="Texture2D" uid="uid://cinkclc8pr5a8" path="res://imagens/vesta.webp" id="3_kdubu"]
 [ext_resource type="Script" uid="uid://bn8aq0gnvm1b" path="res://scripts/jogador.gd" id="4_d21ai"]
 [ext_resource type="Texture2D" uid="uid://bevrnrujo5756" path="res://imagens/ovo.webp" id="5_rj586"]
@@ -20,6 +21,7 @@ texture = ExtResource("1_wtcfe")
 position = Vector2(446.5, 246.53635)
 scale = Vector2(0.18863636, 0.18863633)
 texture = ExtResource("2_q6r6c")
+script = ExtResource("3_d21ai")
 
 [node name="Jogador" type="Sprite2D" parent="." unique_id=301408878]
 position = Vector2(505, 443.00003)
