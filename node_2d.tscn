@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2aftb1epxx1r" path="res://imagens/fundo.jpeg" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://bqpgdnvg8jc72" path="res://imagens/galinha-assustado-dos-desenhos-animados-58487715-removebg-preview.png" id="2_q6r6c"]
-[ext_resource type="Script" uid="uid://bfvqsbnweu42j" path="res://scripts/galinha.gd" id="3_d21ai"]
+[ext_resource type="Script" uid="uid://bfvqsbnweu42j" path="res://galinha.gd" id="3_d21ai"]
 [ext_resource type="Texture2D" uid="uid://cinkclc8pr5a8" path="res://imagens/vesta.webp" id="3_kdubu"]
 [ext_resource type="Script" uid="uid://bn8aq0gnvm1b" path="res://scripts/jogador.gd" id="4_d21ai"]
 [ext_resource type="Texture2D" uid="uid://bevrnrujo5756" path="res://imagens/ovo.webp" id="5_rj586"]
@@ -29,6 +29,8 @@ script = ExtResource("3_d21ai")
 
 [node name="bunda" type="Node2D" parent="Galinha" unique_id=690991197]
 position = Vector2(29.156626, 209.20494)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Galinha" unique_id=1884108615]
 
 [node name="Jogador" type="Sprite2D" parent="." unique_id=301408878]
 position = Vector2(505, 443.00003)
@@ -80,6 +82,8 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0.18039216, 0, 0.9647059, 1)
 theme_override_font_sizes/font_size = 50
 text = "Pontos: 0"
+
+[node name="Node" type="Node" parent="CanvasLayer/Control" unique_id=1126351666]
 
 [connection signal="area_entered" from="Jogador/Area2D" to="Jogador" method="_algo_bateu"]
 [connection signal="input_event" from="Jogador/Area2D" to="Jogador" method="cesto_precionado"]
